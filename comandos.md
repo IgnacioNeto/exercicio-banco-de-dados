@@ -36,3 +36,21 @@ CREATE TABLE alunos(
     curso_id SMALLINT NOT NULL
 );
 ```
+<!-- ____________________________________________________________________ -->
+### Criação da chave estrangeira (relacionamento entre as tabelas)
+
+```sql
+-- Criação das chaves estrangeiras (Exercício)
+ALTER TABLE cursos 
+    ADD CONSTRAINT fk_cursos_professores1
+    FOREIGN KEY (professor_id) REFERENCES professores(id);
+
+ALTER TABLE professores 
+    ADD CONSTRAINT fk_professores_cursos1
+    FOREIGN KEY (curso_id) REFERENCES cursos(id);
+
+ALTER TABLE alunos 
+    ADD CONSTRAINT fk_alunos_cursos
+    FOREIGN KEY (curso_id) REFERENCES cursos(id);
+
+```

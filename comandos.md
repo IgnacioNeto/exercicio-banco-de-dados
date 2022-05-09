@@ -54,6 +54,7 @@ ALTER TABLE alunos
     FOREIGN KEY (curso_id) REFERENCES cursos(id);
 
 <!-- ____________________________________________________________________ -->
+-- Inclusão dos cursos (5 cursos:) Etapa 2
 INSERT INTO cursos (titulo, carga_horaria) VALUES(
     'Front-End',
     40
@@ -74,6 +75,37 @@ INSERT INTO cursos (titulo, carga_horaria) VALUES(
     'Redes de Computadores',
     100
 );
+
+```
+<!-- ____________________________________________________________________ -->
+### cadastro dos (5 professores) Etapa 2
+
+```sql
+INSERT INTO professores (nome, area_de_atuacao, curso_id) VALUES(
+    'Jon Oliva',
+    'área infra',
+    5
+    ),
+(
+    'Lemmy Kilmister',
+    'área design',
+    4
+    ),
+(
+    'Neil Peart',
+    'área design',
+    3
+    ),
+(
+    'Ozzy Osbourne',
+    'área desenvolvimento',
+    2
+    ),
+(
+    'David Gilmour',
+    'área desenvolvimento',
+    1
+    );
 
 
 ```

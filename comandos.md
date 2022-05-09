@@ -11,7 +11,7 @@ CREATE TABLE cursos(
     id SMALLINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(30) NOT NULL,
     carga_horaria SMALLINT NOT NULL,
-    professor_id INT NOT NULL
+    professor_id INT NULL
 );
 ```
 <!-- ____________________________________________________________________ -->
@@ -52,5 +52,28 @@ ALTER TABLE professores
 ALTER TABLE alunos 
     ADD CONSTRAINT fk_alunos_cursos
     FOREIGN KEY (curso_id) REFERENCES cursos(id);
+
+<!-- ____________________________________________________________________ -->
+INSERT INTO cursos (titulo, carga_horaria) VALUES(
+    'Front-End',
+    40
+    ),
+(
+    'Back-End',
+    80
+    ),
+(
+    'UX/UI Design',
+    30
+),
+(
+    'Figma',
+    10
+),
+(
+    'Redes de Computadores',
+    100
+);
+
 
 ```

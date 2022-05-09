@@ -114,5 +114,78 @@ UPDATE cursos SET professor_id = 3 WHERE id = 3;
 UPDATE cursos SET professor_id = 4 WHERE id = 2;
 UPDATE cursos SET professor_id = 5 WHERE id = 1;
 
+-- Cadastro dos alunos
+
+INSERT INTO alunos (nome, data_de_nascimento,primeira_nota, segunda_nota, curso_id) VALUES(
+    'Ignacio Neto',
+    '1982-02-26',
+    8,
+    10,
+    3
+    ),
+(
+    'Maria Yussef',
+    '1985-02-26',
+    9,
+    10,
+    2
+    ),
+(
+    'Robert Sheer',
+    '1995-02-03',
+    9,
+    7,
+    5
+),
+(
+    'Rosana Uter',
+    '1970-06-09',
+    10,
+    10,
+    1
+),
+(
+    'Vater Gustavo',
+    '1955-11-19',
+    9,
+    9,
+    4
+),
+(
+    'Valéria Linda',
+    '2005-09-26',
+    4,
+    7,
+    2
+),
+(
+    'Mário Calore',
+    '1995-02-03',
+    10,
+    7,
+    3
+),
+(
+    'Ariana Grande',
+    '1995-02-03',
+    8,
+    3,
+    4
+),
+(
+    'Michael Robert',
+    '1995-02-03',
+    9,
+    9,
+    1
+),
+(
+    'Viviane Lima',
+    '2015-01-01',
+    10,
+    9,
+    3
+);
+
 
 ```

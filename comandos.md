@@ -189,3 +189,76 @@ INSERT INTO alunos (nome, data_de_nascimento,primeira_nota, segunda_nota, curso_
 
 
 ```
+<!-- ____________________________________________________________________ -->
+### Consultas (Etapa 3)
+
+### 1) Faça uma consulta que mostre os alunos que nasceram antes do ano 2009
+```sql
+SELECT data_de_nascimento FROM alunos WHERE data_de_nascimento < '2009-01-01';
+
+```
+<!-- _________________________ -->
+### 2) Faça uma consulta que calcule a média das notas de cada aluno e as mostre com duas casas decimais.
+```sql
+
+SELECT nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_nota) / 2), 2) AS "Média das notas"  from alunos GROUP BY nome;
+<!-- _________________________ -->
+
+```
+### 3) Faça uma consulta que calcule o limite de faltas de cada curso de acordo com a carga horária. Considere o limite como 25% da carga horária. Classifique em ordem crescente pelo título do curso.
+```sql
+
+SELECT carga_horaria, (carga_horaria * 0.25) AS "Limite de faltas (Hs)"  from cursos;
+
+```
+<!-- _________________________ -->
+
+### 4) Faça uma consulta que mostre os nomes somente dos professores da área de desenvolvimento.
+```sql
+
+SELECT nome, area_de_atuacao FROM professores WHERE area_de_atuacao LIKE "%desenvolvimento%";
+
+```
+<!-- _________________________ -->
+
+### 5) Faça uma consulta que mostre a quantidade de professores por área de desenvolvimento.
+```sql
+
+SELECT COUNT(area_de_atuacao) AS "Quantidade de professores" FROM professores WHERE area_de_atuacao = "desenvolvimento";
+
+```
+<!-- _________________________ -->
+
+### 6) Faça uma consulta que mostre o nome dos alunos, o título e a carga horária dos cursos que fazem.
+```sql
+
+SELECT alunos.nome, cursos.titulo, cursos.carga_horaria FROM alunos INNER JOIN cursos ON alunos.curso_id = cursos.id;
+
+```
+<!-- _________________________ -->
+### 7) Faça uma consulta que mostre o nome dos professores e o título do curso que lecionam. Classifique pelo nome do professor.
+```sql
+
+SELECT professores.nome, cursos.titulo FROM professores INNER JOIN cursos ON professores.curso_id = cursos.id ORDER BY professores.nome;
+
+```
+<!-- _________________________ -->
+### 8) Faça uma consulta que mostre o nome dos alunos, o título dos cursos que fazem, e o professor de cada curso.
+```sql
+
+SELECT alunos.nome, cursos.titulo, professores.nome AS "Nome professor" FROM alunos LEFT JOIN cursos ON alunos.curso_id = cursos.id LEFT JOIN professores ON professores.curso_id = cursos.id;
+
+```
+<!-- _________________________ -->
+### 9) Faça uma consulta que mostre a quantidade de alunos que cada curso possui. Classifique os resultados em ordem descrecente de acordo com a quantidade de alunos.
+```sql
+
+SELECT cursos.titulo AS Matéria, COUNT(alunos.curso_id) As "QTD. de alunos" FROM alunos INNER JOIN cursos ON alunos.curso_id = cursos.id GROUP BY Matéria ORDER BY "QTD. de alunos";
+
+```
+<!-- _________________________ -->
+### 10) Faça uma consulta que mostre o nome dos alunos, suas notas, médias, e o título dos cursos que fazem. Devem ser considerados somente os alunos de Front-End e Back-End. Mostre classificados pelo nome do aluno.
+```sql
+SELECT alunos.nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_nota) / 2), 2) AS "Média das notas", cursos.titulo AS titulo, from alunos INNER JOIN cursos ON alunos.curso_id = cursos.id GROUP BY "Média das notas";
+
+```

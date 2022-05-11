@@ -259,6 +259,19 @@ SELECT cursos.titulo AS Matéria, COUNT(alunos.curso_id) As "QTD. de alunos" FRO
 <!-- _________________________ -->
 ### 10) Faça uma consulta que mostre o nome dos alunos, suas notas, médias, e o título dos cursos que fazem. Devem ser considerados somente os alunos de Front-End e Back-End. Mostre classificados pelo nome do aluno.
 ```sql
-SELECT alunos.nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_nota) / 2), 2) AS "Média das notas", cursos.titulo AS titulo, from alunos INNER JOIN cursos ON alunos.curso_id = cursos.id GROUP BY "Média das notas";
+SELECT alunos.nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_nota) / 2), 2) AS "Média das notas", cursos.titulo AS titulo from alunos INNER JOIN cursos ON alunos.curso_id = cursos.id WHERE curso_id IN(1,2) GROUP BY nome ORDER BY titulo;
+
+```
+<!-- _________________________ -->
+### 11) Faça uma consulta que altere o nome do curso de Figma para Adobe XD e sua carga horária de 10 para 15.
+```sql
+
+UPDATE cursos SET titulo = 'Adobe XD', carga_horaria = 15 WHERE id = 4;
+
+```
+<!-- _________________________ -->
+### 12) Faça uma consulta que exclua um aluno do curso de Redes de Computadores e um aluno do curso de UX/UI.
+```sql
+DELETE FROM alunos WHERE id = 5 OR id = 1;
 
 ```

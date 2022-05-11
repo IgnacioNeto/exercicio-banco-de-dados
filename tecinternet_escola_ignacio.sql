@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Maio-2022 às 16:51
+-- Tempo de geração: 11-Maio-2022 às 17:04
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -41,11 +41,9 @@ CREATE TABLE `alunos` (
 --
 
 INSERT INTO `alunos` (`id`, `nome`, `data_de_nascimento`, `primeira_nota`, `segunda_nota`, `curso_id`) VALUES
-(1, 'Ignacio Neto', '1982-02-26', '8.00', '10.00', 3),
 (2, 'Maria Yussef', '1985-02-26', '9.00', '10.00', 2),
 (3, 'Robert Sheer', '1995-02-03', '9.00', '7.00', 5),
 (4, 'Rosana Uter', '1970-06-09', '10.00', '10.00', 1),
-(5, 'Vater Gustavo', '1955-11-19', '9.00', '9.00', 4),
 (6, 'Valéria Linda', '2005-09-26', '4.00', '7.00', 2),
 (7, 'Mário Calore', '1995-02-03', '10.00', '7.00', 3),
 (8, 'Ariana Grande', '1995-02-03', '8.00', '3.00', 4),
@@ -73,7 +71,7 @@ INSERT INTO `cursos` (`id`, `titulo`, `carga_horaria`, `professor_id`) VALUES
 (1, 'Front-End', 40, 5),
 (2, 'Back-End', 80, 4),
 (3, 'UX/UI Design', 30, 3),
-(4, 'Figma', 10, 2),
+(4, 'Adobe XD', 15, 2),
 (5, 'Redes de Computadores', 100, 1);
 
 -- --------------------------------------------------------
@@ -94,11 +92,11 @@ CREATE TABLE `professores` (
 --
 
 INSERT INTO `professores` (`id`, `nome`, `area_de_atuacao`, `curso_id`) VALUES
-(1, 'Jon Oliva', '', 5),
-(2, 'Lemmy Kilmister', '', 4),
-(3, 'Neil Peart', '', 3),
-(4, 'Ozzy Osbourne', '', 2),
-(5, 'David Gilmour', '', 1);
+(1, 'Jon Oliva', 'infra', 5),
+(2, 'Lemmy Kilmister', 'design', 4),
+(3, 'Neil Peart', 'design', 3),
+(4, 'Ozzy Osbourne', 'desenvolvimento', 2),
+(5, 'David Gilmour', 'desenvolvimento', 1);
 
 --
 -- Índices para tabelas despejadas

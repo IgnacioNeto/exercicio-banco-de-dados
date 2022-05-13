@@ -197,6 +197,8 @@ INSERT INTO alunos (nome, data_de_nascimento,primeira_nota, segunda_nota, curso_
 SELECT data_de_nascimento FROM alunos WHERE data_de_nascimento < '2009-01-01';
 
 ```
+![Relatório 1](resultados/relatorio1.jpg)
+
 <!-- _________________________ -->
 ### 2) Faça uma consulta que calcule a média das notas de cada aluno e as mostre com duas casas decimais.
 ```sql
@@ -205,12 +207,16 @@ SELECT nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_not
 <!-- _________________________ -->
 
 ```
+![Relatório 2](resultados/relatorio2.jpg)
+
 ### 3) Faça uma consulta que calcule o limite de faltas de cada curso de acordo com a carga horária. Considere o limite como 25% da carga horária. Classifique em ordem crescente pelo título do curso.
 ```sql
 
 SELECT carga_horaria, (carga_horaria * 0.25) AS "Limite de faltas (Hs)"  from cursos;
 
 ```
+![Relatório 3](resultados/relatorio3.jpg)
+
 <!-- _________________________ -->
 
 ### 4) Faça uma consulta que mostre os nomes somente dos professores da área de desenvolvimento.
@@ -219,6 +225,7 @@ SELECT carga_horaria, (carga_horaria * 0.25) AS "Limite de faltas (Hs)"  from cu
 SELECT nome, area_de_atuacao FROM professores WHERE area_de_atuacao LIKE "%desenvolvimento%";
 
 ```
+![Relatório 4](resultados/relatorio4.jpg)
 <!-- _________________________ -->
 
 ### 5) Faça uma consulta que mostre a quantidade de professores por área de desenvolvimento.
@@ -227,6 +234,8 @@ SELECT nome, area_de_atuacao FROM professores WHERE area_de_atuacao LIKE "%desen
 SELECT COUNT(area_de_atuacao) AS "Quantidade de professores" FROM professores WHERE area_de_atuacao = "desenvolvimento";
 
 ```
+![Relatório 5](resultados/relatorio5.jpg)
+
 <!-- _________________________ -->
 
 ### 6) Faça uma consulta que mostre o nome dos alunos, o título e a carga horária dos cursos que fazem.
@@ -235,6 +244,8 @@ SELECT COUNT(area_de_atuacao) AS "Quantidade de professores" FROM professores WH
 SELECT alunos.nome, cursos.titulo, cursos.carga_horaria FROM alunos INNER JOIN cursos ON alunos.curso_id = cursos.id;
 
 ```
+![Relatório 6](resultados/relatorio6.jpg)
+
 <!-- _________________________ -->
 ### 7) Faça uma consulta que mostre o nome dos professores e o título do curso que lecionam. Classifique pelo nome do professor.
 ```sql
@@ -242,6 +253,8 @@ SELECT alunos.nome, cursos.titulo, cursos.carga_horaria FROM alunos INNER JOIN c
 SELECT professores.nome, cursos.titulo FROM professores INNER JOIN cursos ON professores.curso_id = cursos.id ORDER BY professores.nome;
 
 ```
+![Relatório 7](resultados/relatorio7.jpg)
+
 <!-- _________________________ -->
 ### 8) Faça uma consulta que mostre o nome dos alunos, o título dos cursos que fazem, e o professor de cada curso.
 ```sql
@@ -249,6 +262,8 @@ SELECT professores.nome, cursos.titulo FROM professores INNER JOIN cursos ON pro
 SELECT alunos.nome, cursos.titulo, professores.nome AS "Nome professor" FROM alunos LEFT JOIN cursos ON alunos.curso_id = cursos.id LEFT JOIN professores ON professores.curso_id = cursos.id;
 
 ```
+![Relatório 8](resultados/relatorio8.jpg)
+
 <!-- _________________________ -->
 ### 9) Faça uma consulta que mostre a quantidade de alunos que cada curso possui. Classifique os resultados em ordem descrecente de acordo com a quantidade de alunos.
 ```sql
@@ -256,12 +271,16 @@ SELECT alunos.nome, cursos.titulo, professores.nome AS "Nome professor" FROM alu
 SELECT cursos.titulo AS Matéria, COUNT(alunos.curso_id) As "QTD. de alunos" FROM alunos INNER JOIN cursos ON alunos.curso_id = cursos.id GROUP BY Matéria ORDER BY "QTD. de alunos";
 
 ```
+![Relatório 9](resultados/relatorio9.jpg)
+
 <!-- _________________________ -->
 ### 10) Faça uma consulta que mostre o nome dos alunos, suas notas, médias, e o título dos cursos que fazem. Devem ser considerados somente os alunos de Front-End e Back-End. Mostre classificados pelo nome do aluno.
 ```sql
 SELECT alunos.nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_nota) / 2), 2) AS "Média das notas", cursos.titulo AS titulo from alunos INNER JOIN cursos ON alunos.curso_id = cursos.id WHERE curso_id IN(1,2) GROUP BY nome ORDER BY titulo;
 
 ```
+![Relatório 10](resultados/relatorio10.jpg)
+
 <!-- _________________________ -->
 ### 11) Faça uma consulta que altere o nome do curso de Figma para Adobe XD e sua carga horária de 10 para 15.
 ```sql
@@ -269,12 +288,15 @@ SELECT alunos.nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segu
 UPDATE cursos SET titulo = 'Adobe XD', carga_horaria = 15 WHERE id = 4;
 
 ```
+![Relatório 11](resultados/relatorio11.jpg)
+
 <!-- _________________________ -->
 ### 12) Faça uma consulta que exclua um aluno do curso de Redes de Computadores e um aluno do curso de UX/UI.
 ```sql
 DELETE FROM alunos WHERE id = 5 OR id = 1;
 
 ```
+![Relatório 12](resultados/relatorio12.jpg)
 <!-- _________________________ -->
 ### 13) Faça uma consulta que mostre a lista de alunos atualizada e o título dos cursos que fazem, classificados pelo nome do aluno.
 ```sql
@@ -282,6 +304,7 @@ DELETE FROM alunos WHERE id = 5 OR id = 1;
 SELECT alunos.nome, cursos.titulo FROM alunos INNER JOIN cursos ON alunos.curso_id = cursos.id WHERE curso_id ORDER BY nome;
 
 ```
+![Relatório 13](resultados/relatorio13.jpg)
 <!-- _________________________ -->
 ## DESAFIOS
 
@@ -291,6 +314,8 @@ SELECT alunos.nome, cursos.titulo FROM alunos INNER JOIN cursos ON alunos.curso_
 SELECT alunos.nome, (2022-YEAR(alunos.data_de_nascimento)) AS "Idade dos alunos" FROM alunos;
 
 ```
+![Desafio 1](resultados/desafio1.jpg)
+
 <!-- _________________________ -->
 ### 2) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **maior ou igual a 7**.
 ```sql
@@ -299,6 +324,8 @@ SELECT alunos.nome, primeira_nota, segunda_nota,
 ROUND(primeira_nota + segunda_nota)/ 2 AS "Média das notas" FROM alunos WHERE ((primeira_nota + segunda_nota) / 2) >= 7;
 
 ```
+![Desafio 2](resultados/desafio2.jpg)
+
 <!-- _________________________ -->
 ### 3) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **menor que 7**.
 ```sql
@@ -307,10 +334,14 @@ SELECT alunos.nome, primeira_nota, segunda_nota,
 ROUND(primeira_nota + segunda_nota)/ 2 AS "Média das notas" FROM alunos WHERE ((primeira_nota + segunda_nota) / 2) < 7;
 
 ```
+![Desafio 3](resultados/desafio3.jpg)
+
 <!-- _________________________ -->
 
 ### 4) Criar uma consulta que mostre a quantidade de alunos com média **maior ou igual a 7**.
 ```sql
 
+SELECT COUNT(((primeira_nota + segunda_nota) / 2)) As "QTD. de alunos" FROM alunos  WHERE ((primeira_nota + segunda_nota) / 2) >= 7;
 
 ```
+![Desafio 4](resultados/desafio4.jpg)

@@ -275,3 +275,42 @@ UPDATE cursos SET titulo = 'Adobe XD', carga_horaria = 15 WHERE id = 4;
 DELETE FROM alunos WHERE id = 5 OR id = 1;
 
 ```
+<!-- _________________________ -->
+### 13) Faça uma consulta que mostre a lista de alunos atualizada e o título dos cursos que fazem, classificados pelo nome do aluno.
+```sql
+
+SELECT alunos.nome, cursos.titulo FROM alunos INNER JOIN cursos ON alunos.curso_id = cursos.id WHERE curso_id ORDER BY nome;
+
+```
+<!-- _________________________ -->
+## DESAFIOS
+
+### 1) Criar uma consulta que calcule a idade do aluno
+```sql
+
+SELECT alunos.nome, (2022-YEAR(alunos.data_de_nascimento)) AS "Idade dos alunos" FROM alunos;
+
+```
+<!-- _________________________ -->
+### 2) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **maior ou igual a 7**.
+```sql
+
+SELECT alunos.nome, primeira_nota, segunda_nota, 
+ROUND(primeira_nota + segunda_nota)/ 2 AS "Média das notas" FROM alunos WHERE ((primeira_nota + segunda_nota) / 2) >= 7;
+
+```
+<!-- _________________________ -->
+### 3) Criar uma consulta que calcule a média das notas de cada aluno e mostre somente os alunos que tiveram a média **menor que 7**.
+```sql
+
+SELECT alunos.nome, primeira_nota, segunda_nota, 
+ROUND(primeira_nota + segunda_nota)/ 2 AS "Média das notas" FROM alunos WHERE ((primeira_nota + segunda_nota) / 2) < 7;
+
+```
+<!-- _________________________ -->
+
+### 4) Criar uma consulta que mostre a quantidade de alunos com média **maior ou igual a 7**.
+```sql
+
+
+```
